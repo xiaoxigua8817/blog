@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+<script type="text/javascript" src="jquery-3.1.0.js"></script>
+<style>
+*{margin:0px;padding:0px}
+
+.box{
+	width:300px;
+	height:200px;
+	margin:20px 400px;
+	position:relative;
+}
+.topMenu{
+	height:18px;
+	width:300px;
+ 	position:relative;
+	text-align:center;
+}
+.liStyle{
+	height:17px;
+	width:98px;
+	line-height:17px;
+	border:1px solid #333333;
+	float:left;
+	list-style:none;
+	
+}
+.content{
+	border:1px solid #00FF00;
+	border-top:none;
+	background:#CEFFFF;
+	width:298px;
+	height:180px;
+}
+.ulContent{
+	list-style:none;
+	padding:5px 5px;
+}
+.show{
+	background:#CEFFFF;
+	border-bottom:none;
+}
+.hide{
+	background:#FFFFFF;
+	border-bottom:1px solid #333333;
+
+}
+
+.ulShow{
+	
+	display:block;
+
+}
+.ulHide{
+
+	display:none;
+	
+}
+
+
+</style>
+<script type="text/javascript">
+	$(function(){
+			$(".box>ul.topMenu>li").click(function(){
+				//$(this).parent().find("li.show").addClass("hide").removeClass("show");
+				$(this).addClass("show").removeClass("hide").siblings().addClass("hide").removeClass("show");
+				var ary=$(".topMenu>li");
+				//alert($.inArray(this,ary));
+				$(".content>ul:eq("+$.inArray(this,ary)+")").addClass("ulShow").removeClass("ulHide").siblings().addClass("ulHide").removeClass("ulShow");
+			})
+	
+	
+	})
+
+
+
+
+
+
+</script>
+<body>
+<div class="box">
+	<ul class="topMenu">
+		<li class="liStyle show">霸王龙</li>
+		<li class="liStyle hide">翼龙</li>
+		<li class="liStyle hide">剑龙</li>
+	</ul>
+	<div class="content">
+		<ul class="ulContent ulShow">
+			<li>霸王龙很大很大 大到吓死你</li>
+			<li>霸王龙很大很大 大到吓死你</li>
+			<li>霸王龙很大很大 大到吓死你</li>
+		</ul>
+		<ul class="ulContent ulHide">
+			<li>翼龙可以飞 飞很高很高很高</li>
+			<li>翼龙可以飞 飞很高很高很高</li>
+			<li>翼龙可以飞 飞很高很高很高</li>
+		</ul>
+		<ul class="ulContent ulHide">
+			<li>剑龙 很贱很贱很贱 贼贱贼贱的</li>
+			<li>剑龙 很贱很贱很贱 贼贱贼贱的</li>
+			<li>剑龙 很贱很贱很贱 贼贱贼贱的</li>	
+		</ul>
+	</div>
+
+</div>
+</body>
+</html>
